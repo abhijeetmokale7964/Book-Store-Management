@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Book Store</a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item" th:if="${session.user == null}">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+
+                <li class="nav-item" th:if="${session.user == null}">
+                    <a class="nav-link" th:href="@{/signup}">Signup</a>
+                </li>
+
+                <li class="nav-item" th:if="${session.user != null}">
+                    <a class="nav-link" th:href="@{/myBooks}">My Books</a>
+                </li>
+
+                <li class="nav-item" th:if="${session.user != null}">
+                    <a class="nav-link text-danger" th:href="@{/logout}">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>
