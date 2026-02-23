@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -37,3 +38,44 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Book</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        form {
+            width: 300px;
+            margin: auto;
+        }
+        input {
+            width: 100%;
+            margin: 8px 0;
+            padding: 8px;
+        }
+        button {
+            padding: 8px 15px;
+            background: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>➕ Add New Book</h2>
+
+<form th:action="@{/save}" method="post">
+    <input type="text" name="name" placeholder="Book Name" required />
+    <input type="text" name="author" placeholder="Author Name" required />
+    <input type="text" name="price" placeholder="Price" required />
+    <button type="submit">Save</button>
+</form>
+
+<br>
+<a th:href="@{/}">⬅ Back to Home</a>
+
+</body>
+</html>
+>>>>>>> 14cc1d7e61fc807763dc644a7324efaae564d440

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Available Books</title>
+    <style>
+       
+        body { font-family: Arial; text-align: center; }
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background: #4CAF50;
+            color: white;
+        }
+        .edit {
+            background: orange;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .delete {
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        
+     .adbk {
+            background: blue;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+        } 
+    </style>
+    
+    </head>
+<body>
+
+<h2>📖 Available Books</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Add</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.price}"></td>
+
+        <td>
+            <a th:href="@{/myList/{id}(id=${book.id})}" class="adbk">Add to MyBooks</a>
+        </td>
+
+        <td>
+            <a th:href="@{/editBook/{id}(id=${book.id})}" class="edit">Edit</a>
+        </td>
+
+        <td>
+            <a th:href="@{/deleteBook/{id}(id=${book.id})}"
+               class="delete"
+               onclick="return confirm('Are you sure you want to delete this book?')">
+                Delete
+            </a>
+        </td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/}">⬅ Back to Home</a>
+
+</body>
+</html>
